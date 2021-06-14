@@ -2,12 +2,12 @@ package org.gg.scoot.mapper;
 
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.unit.UnitBuildingDto;
-import org.gg.scoot.entity.Unit;
+import org.gg.scoot.entity.UnitEntity;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "cdi", uses = HelpTextMapper.class)
+@Mapper(componentModel = "cdi", uses = { HelpTextMapper.class, TechMapper.class })
 public interface UnitBuildingMapper {
     @Mapping(source = "woodCost", target = "cost.woodCost")
     @Mapping(source = "foodCost", target = "cost.foodCost")
@@ -19,5 +19,5 @@ public interface UnitBuildingMapper {
     @Mapping(source = "hitPoints", target = "stats.hitPoints")
     @Mapping(source = "lineOfSight", target = "stats.lineOfSight")
     @Mapping(source = "garrisonCapacity", target = "stats.garrisonCapacity")
-    UnitBuildingDto toDto(Unit unitBuilding, @Context Language language);
+    UnitBuildingDto toDto(UnitEntity unitEntityBuilding, @Context Language language);
 }

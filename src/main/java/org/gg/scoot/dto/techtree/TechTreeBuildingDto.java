@@ -9,9 +9,9 @@ import java.util.List;
 public class TechTreeBuildingDto {
     public Age age;
     public UnitBuildingDto building;
-    public Integer requiredBuildingId;
-    public Integer enablingResearchId;
-    public Integer requiredTechId;
-    public List<Long> techs;
+    public Integer requiredBuilding;
+    public Integer enablingResearch;
+    public Integer requiredTech;
     public List<Long> units;
+    public List<TechTreeTechDto> techs;
 }

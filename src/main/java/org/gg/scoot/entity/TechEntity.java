@@ -3,23 +3,19 @@ package org.gg.scoot.entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "technology")
-public class Tech extends PanacheEntityBase {
+public class TechEntity extends PanacheEntityBase {
     @Id
     public Long id;
     @OneToOne
     @JoinColumn(name = "name", referencedColumnName = "id")
     public HelpText name;
+    public Integer age;
     @Column(name = "internal_name")
     public String internalName;
-    @Column(name = "building_id")
-    public Integer buildingId;
     @Column(name = "research_time")
     public Integer researchTime;
     @Column(name = "wood_cost")
@@ -30,4 +26,11 @@ public class Tech extends PanacheEntityBase {
     public Integer goldCost;
     @Column(name = "stone_cost")
     public Integer stoneCost;
+
+    @OneToMany
+    @JoinTable(name = "tech_required_tech",
+            joinColumns = {@JoinColumn(name = "required_tech", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
+    public List<TechEntity> techs;
+
 }

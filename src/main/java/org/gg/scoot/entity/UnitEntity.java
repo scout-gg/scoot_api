@@ -2,17 +2,15 @@ package org.gg.scoot.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.persistence.*;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-@Entity
-public class Unit extends PanacheEntityBase {
+@Entity(name = "unit")
+public class UnitEntity extends PanacheEntityBase {
     @Id
     public Long id;
+
+    public Integer age;
 
     @Column(name = "internal_name")
     public String internalName;
@@ -52,4 +50,16 @@ public class Unit extends PanacheEntityBase {
     public Integer lineOfSight;
     @Column(name = "garrison_capacity")
     public Integer garrisonCapacity;
+
+    @OneToMany
+    @JoinTable(name = "tech_required_unit",
+            joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
+    public List<TechEntity> techs;
+
+    @OneToMany
+    @JoinTable(name = "unit_required_unit",
+            joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")})
+    public List<UnitEntity> units;
 }

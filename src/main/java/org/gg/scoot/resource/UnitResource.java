@@ -2,7 +2,7 @@ package org.gg.scoot.resource;
 
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.unit.UnitBuildingDto;
-import org.gg.scoot.entity.Unit;
+import org.gg.scoot.entity.UnitEntity;
 import org.gg.scoot.mapper.UnitBuildingMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
@@ -24,8 +24,8 @@ public class UnitResource {
     @Produces(MediaType.APPLICATION_JSON)
     public UnitBuildingDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
         Language language = Language.valueOf(lang.toUpperCase());
-        Unit unitBuilding = Unit.findById(id);
-        return mapper.toDto(unitBuilding, language);
+        UnitEntity unitEntityBuilding = UnitEntity.findById(id);
+        return mapper.toDto(unitEntityBuilding, language);
     }
 
 }

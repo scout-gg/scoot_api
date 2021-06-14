@@ -15,7 +15,7 @@ public abstract class HelpTextMapper {
         return switch (language) {
             case FR -> helpText.contentFr;
             case EN -> helpText.contentEn;
-            case ES -> helpText.contentEn;
+            case ES -> helpText.contentEs;
         };
     }
 }
