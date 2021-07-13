@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  cog_check_job:
+    runs-on: ubuntu-latest
+    name: check conventional commit compliance
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install curl
+        run: sudo apt-get install curl
+
+      - id: cog
+        uses: actions/cog-conventional-check@v0
