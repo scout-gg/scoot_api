@@ -1,6 +1,7 @@
 package org.gg.scoot.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.hibernate.annotations.Where;
 
 
 import javax.persistence.*;
@@ -33,4 +34,9 @@ public class TechEntity extends PanacheEntityBase {
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
     public List<TechEntity> techs;
 
+    @OneToOne
+    @JoinTable(name = "unit_required_tech",
+            joinColumns = {@JoinColumn(name = "required_tech", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")})
+    public UnitEntity unlockUnit;
 }

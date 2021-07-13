@@ -1,6 +1,7 @@
 package org.gg.scoot.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.List;
@@ -58,6 +59,7 @@ public class UnitEntity extends PanacheEntityBase {
     public List<TechEntity> techs;
 
     @OneToMany
+    @Where(clause = "unit_required_unit.")
     @JoinTable(name = "unit_required_unit",
             joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")})
