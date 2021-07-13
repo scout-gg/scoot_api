@@ -6,9 +6,8 @@ jobs:
     name: check conventional commit compliance
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install curl
-        run: sudo apt-get install curl
+        with:
+          fetch-depth: 0
 
       - id: cog
-        uses: actions/cog-conventional-check@v0
+        uses: oknozor/cog-conventional-check@v0.4
