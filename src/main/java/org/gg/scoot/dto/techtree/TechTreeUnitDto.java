@@ -1,10 +1,10 @@
 package org.gg.scoot.dto.techtree;
 
 import org.gg.scoot.dto.Age;
-import org.gg.scoot.dto.unit.UnitBuildingDto;
+import org.gg.scoot.dto.unit.UnitDto;
 
 public class TechTreeUnitDto {
-    public UnitBuildingDto unit;
+    public UnitDto unit;
     public Age age;
     public Long requiredTech;
     public Long upperBuilding;

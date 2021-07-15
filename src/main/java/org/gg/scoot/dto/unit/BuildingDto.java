@@ -5,7 +5,7 @@ import org.gg.scoot.dto.tech.TechDto;
 
 import java.util.List;
 
-public class UnitBuildingDto {
+public class BuildingDto {
     public Long id;
     public Cost cost;
     public UnitStat stats;
@@ -13,5 +13,5 @@ public class UnitBuildingDto {
     public String helpTextShort;
     public String helpText;
     public List<TechDto> techs;
-    public List<UnitBuildingDto> units;
+    public List<UnitDto> units;
 }

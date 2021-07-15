@@ -8,8 +8,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "unit")
-@Where(clause = "unit_type = 70")
-public class UnitEntity extends PanacheEntityBase {
+@Where(clause = "unit_type = 80")
+public class BuildingEntity extends PanacheEntityBase {
     @Id
     public Long id;
 
@@ -59,4 +59,11 @@ public class UnitEntity extends PanacheEntityBase {
             joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
     public List<TechEntity> techs;
+
+    @OneToMany
+    @Where(clause = "is_root AND  belongs_to_civ IS NULL")
+    @JoinTable(name = "unit_required_unit",
+            joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")})
+    public List<UnitEntity> units;
 }

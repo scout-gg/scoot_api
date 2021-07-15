@@ -1,14 +1,14 @@
 package org.gg.scoot.dto.techtree;
 
 import org.gg.scoot.dto.Age;
-import org.gg.scoot.dto.unit.UnitBuildingDto;
+import org.gg.scoot.dto.unit.UnitDto;
 
 
 import java.util.List;
 
 public class TechTreeBuildingDto {
     public Age age;
-    public UnitBuildingDto building;
+    public UnitDto building;
     public Integer requiredBuilding;
     public Integer enablingResearch;
     public Integer requiredTech;
