@@ -14,4 +14,6 @@ public class BuildingDto {
     public String helpText;
     public List<TechDto> techs;
     public List<UnitDto> units;
+    public List<BuildingDto> buildings;
+
 }

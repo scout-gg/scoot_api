@@ -13,4 +13,5 @@ public class UnitDto {
     public String helpTextShort;
     public String helpText;
     public List<TechDto> techs;
+    public List<UnitDto> units;
 }

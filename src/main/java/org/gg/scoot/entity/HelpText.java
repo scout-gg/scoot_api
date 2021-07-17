@@ -2,7 +2,6 @@ package org.gg.scoot.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

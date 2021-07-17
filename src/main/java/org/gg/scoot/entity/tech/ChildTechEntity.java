@@ -1,13 +1,15 @@
-package org.gg.scoot.entity;
+package org.gg.scoot.entity.tech;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.gg.scoot.entity.HelpText;
+import org.gg.scoot.entity.unit.BuildingEntity;
 
 import javax.persistence.*;
 import java.util.List;
 
-
-@Entity(name = "technology")
-public class TechEntity extends PanacheEntityBase {
+@Entity
+@Table(name = "technology")
+public class ChildTechEntity extends PanacheEntityBase {
     @Id
     public Long id;
     @OneToOne
@@ -31,7 +33,7 @@ public class TechEntity extends PanacheEntityBase {
     @JoinTable(name = "tech_required_tech",
             joinColumns = {@JoinColumn(name = "required_tech", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
-    public List<TechEntity> techs;
+    public List<ChildTechEntity> techs;
 
     @OneToOne
     @JoinTable(name = "unit_required_tech",

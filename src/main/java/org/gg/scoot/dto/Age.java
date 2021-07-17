@@ -6,16 +6,6 @@ public enum Age {
     CASTLE,
     IMPERIAL;
 
-    @Override
-    public String toString() {
-        return switch (this) {
-            case DARK -> "Dark Age";
-            case FEUDAL -> "Feudal Age";
-            case CASTLE -> "Castle Age";
-            case IMPERIAL -> "Imperial Age";
-        };
-    }
-
     public static Age from(int ageId) {
         return switch (ageId) {
             case 1 -> DARK;
@@ -23,6 +13,16 @@ public enum Age {
             case 3 -> CASTLE;
             case 4 -> IMPERIAL;
             default -> throw new RuntimeException("Unknown Age id");
+        };
+    }
+
+    @Override
+    public String toString() {
+        return switch (this) {
+            case DARK -> "Dark Age";
+            case FEUDAL -> "Feudal Age";
+            case CASTLE -> "Castle Age";
+            case IMPERIAL -> "Imperial Age";
         };
     }
 }

@@ -2,7 +2,7 @@ package org.gg.scoot.resource;
 
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.unit.UnitDto;
-import org.gg.scoot.entity.UnitEntity;
+import org.gg.scoot.entity.unit.UnitEntity;
 import org.gg.scoot.mapper.UnitBuildingMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 

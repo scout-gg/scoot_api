@@ -3,8 +3,7 @@ package org.gg.scoot.resource;
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.unit.BuildingDto;
 import org.gg.scoot.dto.unit.UnitDto;
-import org.gg.scoot.entity.BuildingEntity;
-import org.gg.scoot.entity.UnitEntity;
+import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.mapper.UnitBuildingMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
@@ -14,11 +13,21 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/buildings")
 public class BuildingResource {
     @Inject
     UnitBuildingMapper mapper;
+
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<BuildingDto> all(@QueryParam("lang") String lang) {
+        Language language = Language.valueOf(lang.toUpperCase());
+        return mapper.toBuildingDto(BuildingEntity.listAll(), language);
+
+    }
 
     @GET
     @Path("/{id}")

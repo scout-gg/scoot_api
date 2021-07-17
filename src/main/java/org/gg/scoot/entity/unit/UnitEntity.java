@@ -1,6 +1,8 @@
-package org.gg.scoot.entity;
+package org.gg.scoot.entity.unit;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.gg.scoot.entity.HelpText;
+import org.gg.scoot.entity.tech.TechEntity;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;

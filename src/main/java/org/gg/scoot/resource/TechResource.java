@@ -1,12 +1,10 @@
 package org.gg.scoot.resource;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.tech.TechDto;
-import org.gg.scoot.entity.TechEntity;
+import org.gg.scoot.entity.tech.TechEntity;
 import org.gg.scoot.mapper.TechMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
-
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -26,8 +24,7 @@ public class TechResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<TechDto> all(@QueryParam("lang") String lang) {
         Language language = Language.valueOf(lang.toUpperCase());
-        final List<TechEntity> entities = TechEntity.listAll();
-        return mapper.toTechDtoFr(entities, language);
+        return mapper.toTechDtoFr(TechEntity.listAll(), language);
 
     }
 

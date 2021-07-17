@@ -1,6 +1,8 @@
-package org.gg.scoot.entity;
+package org.gg.scoot.entity.unit;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.gg.scoot.entity.HelpText;
+import org.gg.scoot.entity.tech.TechEntity;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -55,6 +57,7 @@ public class BuildingEntity extends PanacheEntityBase {
     public Integer garrisonCapacity;
 
     @OneToMany
+    @Where(clause = "is_root")
     @JoinTable(name = "tech_required_unit",
             joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
@@ -66,4 +69,11 @@ public class BuildingEntity extends PanacheEntityBase {
             joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")})
     public List<UnitEntity> units;
+
+    @OneToMany
+    @Where(clause = "belongs_to_civ IS NULL")
+    @JoinTable(name = "unit_required_unit",
+            joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")})
+    public List<BuildingEntity> buildings;
 }
