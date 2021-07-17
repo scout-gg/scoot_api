@@ -1,16 +1,23 @@
 package org.gg.scoot.entity.unit;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.With;
 import org.gg.scoot.entity.HelpText;
 import org.gg.scoot.entity.tech.TechEntity;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "unit")
 @Where(clause = "unit_type = 70")
+@AllArgsConstructor
+@NoArgsConstructor
+@With
 public class UnitEntity extends PanacheEntityBase {
     @Id
     public Long id;
@@ -61,4 +68,10 @@ public class UnitEntity extends PanacheEntityBase {
             joinColumns = {@JoinColumn(name = "required_unit", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
     public List<TechEntity> techs;
+
+
+    @ElementCollection(fetch=FetchType.EAGER)
+    @CollectionTable(name="civ_unit", joinColumns=@JoinColumn(name="unit_id"))
+    @Column(name="civ_id")
+    public List<Long> enabledForCivilizations;
 }

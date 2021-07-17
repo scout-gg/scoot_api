@@ -3,7 +3,7 @@ package org.gg.scoot.resource;
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.tech.TechDto;
 import org.gg.scoot.entity.tech.TechEntity;
-import org.gg.scoot.mapper.TechMapper;
+import org.gg.scoot.mapper.tech.TechMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ public class TechResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<TechDto> all(@QueryParam("lang") String lang) {
         Language language = Language.valueOf(lang.toUpperCase());
-        return mapper.toTechDtoFr(TechEntity.listAll(), language);
+        return mapper.toDto(TechEntity.listAll(), language);
 
     }
 
@@ -34,7 +34,7 @@ public class TechResource {
     public TechDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
         Language language = Language.valueOf(lang.toUpperCase());
         TechEntity techEntity = TechEntity.findById(id);
-        return mapper.toTechDtoFr(techEntity, language);
+        return mapper.toDto(techEntity, language);
 
     }
 }

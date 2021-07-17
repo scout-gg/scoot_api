@@ -2,9 +2,8 @@ package org.gg.scoot.resource;
 
 import org.gg.scoot.dto.Language;
 import org.gg.scoot.dto.unit.BuildingDto;
-import org.gg.scoot.dto.unit.UnitDto;
 import org.gg.scoot.entity.unit.BuildingEntity;
-import org.gg.scoot.mapper.UnitBuildingMapper;
+import org.gg.scoot.mapper.unit.UnitBuildingMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
@@ -25,7 +24,7 @@ public class BuildingResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<BuildingDto> all(@QueryParam("lang") String lang) {
         Language language = Language.valueOf(lang.toUpperCase());
-        return mapper.toBuildingDto(BuildingEntity.listAll(), language);
+        return mapper.toDto(BuildingEntity.listAll(), language);
 
     }
 

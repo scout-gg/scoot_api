@@ -1,6 +1,9 @@
 package org.gg.scoot.entity.tech;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.With;
 import org.gg.scoot.entity.HelpText;
 import org.gg.scoot.entity.unit.UnitOrBuildingEntity;
 import org.hibernate.annotations.Where;
@@ -11,6 +14,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "technology")
+@AllArgsConstructor
+@NoArgsConstructor
+@With
 public class TechEntity extends PanacheEntityBase {
     @Id
     public Long id;

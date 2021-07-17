@@ -1,12 +1,18 @@
 package org.gg.scoot.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.With;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "help_text")
+@AllArgsConstructor
+@NoArgsConstructor
+@With
 public class HelpText extends PanacheEntityBase {
     @Id
     public Long id;
