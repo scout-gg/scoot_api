@@ -8,12 +8,12 @@ import org.gg.scoot.dto.unit.UnitStatDto;
 import java.util.List;
 
 public record CivUnitDto(Long id,
-                        CostDto costDto,
-                        UnitStatDto stats,
-                        String name,
-                        String helpTextShort,
-                        String helpText,
-                        List<TechDto> techs,
-                        List<UnitDto> units,
-                        boolean enabled) {
+                         CostDto costDto,
+                         UnitStatDto stats,
+                         String name,
+                         String helpTextShort,
+                         String helpText,
+                         List<TechDto> techs,
+                         List<UnitDto> units,
+                         boolean enabled) {
 }

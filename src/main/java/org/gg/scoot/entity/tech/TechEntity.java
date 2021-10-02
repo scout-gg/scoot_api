@@ -1,9 +1,7 @@
 package org.gg.scoot.entity.tech;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.With;
+import lombok.*;
 import org.gg.scoot.entity.HelpTextEntity;
 import org.gg.scoot.entity.unit.UnitOrBuildingEntity;
 import org.hibernate.annotations.Where;
@@ -17,37 +15,39 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
+@Setter
+@Getter
 public class TechEntity extends PanacheEntityBase {
     @Id
-    public Long id;
+    private Long id;
     @OneToOne
     @JoinColumn(name = "name", referencedColumnName = "id")
-    public HelpTextEntity name;
-    public Integer age;
+    private HelpTextEntity name;
+    private Integer age;
     @Column(name = "internal_name")
-    public String internalName;
+    private String internalName;
     @Column(name = "research_time")
-    public Integer researchTime;
+    private Integer researchTime;
     @Column(name = "wood_cost")
-    public Integer woodCost;
+    private Integer woodCost;
     @Column(name = "food_cost")
-    public Integer foodCost;
+    private Integer foodCost;
     @Column(name = "gold_cost")
-    public Integer goldCost;
+    private Integer goldCost;
     @Column(name = "stone_cost")
-    public Integer stoneCost;
+    private Integer stoneCost;
 
     @OneToMany
     @Where(clause = "NOT is_root")
     @JoinTable(name = "tech_required_tech",
             joinColumns = {@JoinColumn(name = "required_tech", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
-    public List<TechEntity> techs;
+    private List<TechEntity> techs;
 
     @OneToOne
     @JoinTable(name = "unit_required_tech",
             joinColumns = {@JoinColumn(name = "required_tech", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "unit", referencedColumnName = "id")}
     )
-    public UnitOrBuildingEntity unlockUnit;
+    private UnitOrBuildingEntity unlockUnit;
 }

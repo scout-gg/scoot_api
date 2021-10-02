@@ -66,8 +66,8 @@ public class UnitOrBuildingEntity extends PanacheEntityBase {
             inverseJoinColumns = {@JoinColumn(name = "tech", referencedColumnName = "id")})
     private List<TechEntity> techs;
 
-    @ElementCollection(fetch=FetchType.EAGER)
-    @CollectionTable(name="civ_unit", joinColumns=@JoinColumn(name="unit_id"))
-    @Column(name="civ_id")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "civ_unit", joinColumns = @JoinColumn(name = "unit_id"))
+    @Column(name = "civ_id")
     private List<Long> enabledForCivilizations;
 }

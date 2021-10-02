@@ -12,5 +12,6 @@ import java.util.List;
 @Mapper(uses = {HelpTextMapper.class}, componentModel = "cdi")
 public interface CivilizationMapper {
     CivilizationDto toDto(CivilizationEntity civilizationEntity, @Context LanguageDto languageDto);
+
     List<CivilizationDto> toDto(List<CivilizationEntity> civilizationEntities, @Context LanguageDto languageDto);
 }

@@ -9,7 +9,10 @@ import org.gg.scoot.entity.unit.UnitEntity;
 import org.gg.scoot.entity.unit.UnitOrBuildingEntity;
 import org.gg.scoot.mapper.helptext.HelpTextMapper;
 import org.gg.scoot.mapper.tech.TechMapper;
-import org.mapstruct.*;
+import org.mapstruct.Context;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 import java.util.List;
 
