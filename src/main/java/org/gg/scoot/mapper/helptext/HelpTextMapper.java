@@ -13,9 +13,9 @@ public interface HelpTextMapper {
         }
 
         return switch (languageDto) {
-            case FR -> helpText.contentFr;
-            case EN -> helpText.contentEn;
-            case ES -> helpText.contentEs;
+            case FR -> helpText.getContentFr();
+            case EN -> helpText.getContentEn();
+            case ES -> helpText.getContentEs();
         };
     }
 }

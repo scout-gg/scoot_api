@@ -1,9 +1,7 @@
 package org.gg.scoot.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.With;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,39 +11,41 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
+@Getter
+@Setter
 public class HelpTextEntity extends PanacheEntityBase {
     @Id
-    public Long id;
+    private Long id;
     @Column(name = "content_en")
-    public String contentEn;
+    private String contentEn;
     @Column(name = "content_fr")
-    public String contentFr;
+    private String contentFr;
     @Column(name = "content_br")
-    public String contentBr;
+    private String contentBr;
     @Column(name = "content_de")
-    public String contentDe;
+    private String contentDe;
     @Column(name = "content_es")
-    public String contentEs;
+    private String contentEs;
     @Column(name = "content_hi")
-    public String contentHi;
+    private String contentHi;
     @Column(name = "content_it")
-    public String contentIt;
+    private String contentIt;
     @Column(name = "content_jp")
-    public String contentJp;
+    private String contentJp;
     @Column(name = "content_ko")
-    public String contentKo;
+    private String contentKo;
     @Column(name = "content_ms")
-    public String contentMs;
+    private String contentMs;
     @Column(name = "content_mx")
-    public String contentMx;
+    private String contentMx;
     @Column(name = "content_ru")
-    public String contentRu;
+    private String contentRu;
     @Column(name = "content_tr")
-    public String contentTr;
+    private String contentTr;
     @Column(name = "content_tw")
-    public String contentTw;
+    private String contentTw;
     @Column(name = "content_vi")
-    public String contentVi;
+    private String contentVi;
     @Column(name = "content_zh")
-    public String contentZh;
+    private String contentZh;
 }
