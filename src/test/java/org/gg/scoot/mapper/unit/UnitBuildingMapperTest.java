@@ -9,7 +9,6 @@ import org.gg.scoot.dto.unit.UnitDto;
 import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.fixture.BuildingFixture;
 import org.junit.jupiter.api.Test;
-import org.mapstruct.factory.Mappers;
 
 import javax.inject.Inject;
 
@@ -21,15 +20,15 @@ import static org.gg.scoot.fixture.UnitFixture.ARCHER_ID;
 class UnitBuildingMapperTest {
 
     @Inject
-    UnitBuildingMapper mapper = Mappers.getMapper(UnitBuildingMapper.class);
+    UnitBuildingMapper mapper;
 
     @Test
     void should_map_BuildingEntity_to_english_BuildingDto() {
         // Arrange
-        final BuildingEntity archeryRange = BuildingFixture.archeryRange();
+        var archeryRange = BuildingFixture.archeryRange();
 
         // Act
-        final BuildingDto buildingDto = mapper.toDto(archeryRange, LanguageDto.EN);
+        var buildingDto = mapper.toDto(archeryRange, LanguageDto.EN);
 
         // Assert
         SoftAssertions softly = new SoftAssertions();

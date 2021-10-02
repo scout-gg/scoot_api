@@ -1,13 +1,20 @@
 package org.gg.scoot.mapper.civilization;
 
+import io.quarkus.test.junit.QuarkusTest;
 import org.assertj.core.api.SoftAssertions;
 import org.gg.scoot.dto.LanguageDto;
 import org.gg.scoot.fixture.CivilizationFixture;
-import org.mapstruct.factory.Mappers;
+import org.junit.jupiter.api.Test;
 
+import javax.inject.Inject;
+
+@QuarkusTest
 class CivilizationMapperTest {
-    CivilizationMapper mapper = Mappers.getMapper(CivilizationMapper.class);
 
+    @Inject
+    CivilizationMapper mapper;
+
+    @Test
     void should_map_CivilizationEntity_to_english_CivilizationDto() {
         // Arrange
         var britons = CivilizationFixture.britons();

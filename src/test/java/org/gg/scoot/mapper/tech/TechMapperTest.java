@@ -7,7 +7,6 @@ import org.gg.scoot.dto.tech.TechDto;
 import org.gg.scoot.entity.tech.TechEntity;
 import org.gg.scoot.fixture.TechFixture;
 import org.junit.jupiter.api.Test;
-import org.mapstruct.factory.Mappers;
 
 import javax.inject.Inject;
 
@@ -17,15 +16,15 @@ import static org.gg.scoot.fixture.TechFixture.THUMB_RING_ID;
 class TechMapperTest {
 
     @Inject
-    TechMapper mapper = Mappers.getMapper(TechMapper.class);
+    TechMapper mapper;
 
     @Test
     void should_map_TechEntity_to_english_TechDto() {
         // Arrange
-        final TechEntity thumbRing = TechFixture.thumbRing();
+        var thumbRing = TechFixture.thumbRing();
 
         // Act
-        final TechDto techDto = mapper.toDto(thumbRing, LanguageDto.EN);
+        var techDto = mapper.toDto(thumbRing, LanguageDto.EN);
 
         // Assert
         SoftAssertions softly = new SoftAssertions();
