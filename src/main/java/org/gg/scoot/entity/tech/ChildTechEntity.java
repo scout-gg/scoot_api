@@ -1,7 +1,7 @@
 package org.gg.scoot.entity.tech;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import org.gg.scoot.entity.HelpText;
+import org.gg.scoot.entity.HelpTextEntity;
 import org.gg.scoot.entity.unit.BuildingEntity;
 
 import javax.persistence.*;
@@ -14,7 +14,7 @@ public class ChildTechEntity extends PanacheEntityBase {
     public Long id;
     @OneToOne
     @JoinColumn(name = "name", referencedColumnName = "id")
-    public HelpText name;
+    public HelpTextEntity name;
     public Integer age;
     @Column(name = "internal_name")
     public String internalName;

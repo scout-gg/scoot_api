@@ -1,10 +1,10 @@
 package org.gg.scoot.fixture;
 
-import org.gg.scoot.entity.HelpText;
+import org.gg.scoot.entity.HelpTextEntity;
 
 public class HelpTextFixture {
-    public static HelpText archeryRangeName() {
-        return new HelpText()
+    public static HelpTextEntity archeryRangeName() {
+        return new HelpTextEntity()
                 .withContentEn("Archery Range")
                 .withContentFr("Camp de tir à l'arc")
                 .withContentBr("Schießanlage")
@@ -23,8 +23,8 @@ public class HelpTextFixture {
                 .withContentZh("靶场");
     }
 
-    public static HelpText archeryRangeHelpText() {
-        return new HelpText()
+    public static HelpTextEntity archeryRangeHelpText() {
+        return new HelpTextEntity()
                 .withContentEn("Build <b>Archery Range<b> (<cost>) \\nUsed to train and upgrade archer units. <i> Upgrades: production speed (Castle); line of sight (Town Center); hit points, armor (University); more resistant to Monks (Monastery).<i>  \\n<hp> <attack> <armor> <piercearmor> <range> <garrison>")
                 .withContentFr("Construire <b>Camp de tir à l'arc<b> (<cost>) \\nUtilisé pour former et améliorer les archers. <i> Améliorations : vitesse de production (Château) ; LDM (Forum) ; points de vie, armure (Université) ; résistance aux moines supérieure (Monastère).<i> \\n<hp> <attack> <armor> <piercearmor> <range> <garrison>")
                 .withContentBr("Construir <b>Campo de Arqueiros<b> (<cost>) \\nUsada para treinar e aprimorar unidades de arqueiros. <i> Aprimoramentos: velocidade de produção (Castelo); linha de visão (Centro da Cidade); pontos de vida, armadura (Universidade); mais resistente a Monges (Mosteiro).<i>  \\n<hp> <attack> <armor> <piercearmor> <range> <garrison>")
@@ -43,8 +43,8 @@ public class HelpTextFixture {
                 .withContentZh("建造<b>靶场<b> (<cost>) \\n用于训练和升级步弓手单位。 <i> 升级：生产速度 (城堡)；视野 (城镇中心)；生命值，护甲 (大学)；提升抵抗僧侣的能力 (修道院)。<i> \\n<hp> <attack> <armor> <piercearmor> <range> <garrison>");
     }
 
-    public static HelpText archeryRangeHelpTextShort() {
-        return new HelpText()
+    public static HelpTextEntity archeryRangeHelpTextShort() {
+        return new HelpTextEntity()
                 .withContentEn("Build Archery Range")
                 .withContentFr("Construire Camp de tir à l'arc")
                 .withContentEs("Construir galería de tiro con arco")
@@ -63,8 +63,8 @@ public class HelpTextFixture {
                 .withContentZh("建造靶场");
     }
 
-    public static HelpText archerName() {
-        return new HelpText()
+    public static HelpTextEntity archerName() {
+        return new HelpTextEntity()
                 .withContentEn("Archer")
                 .withContentFr("Archer")
                 .withContentBr("Arqueiro")
@@ -83,8 +83,8 @@ public class HelpTextFixture {
                 .withContentZh("步弓手");
     }
 
-    public static HelpText archerHelpText() {
-        return new HelpText()
+    public static HelpTextEntity archerHelpText() {
+        return new HelpTextEntity()
                 .withContentEn("Create <b>Archer<b> (<cost>) \\nRanged unit. Strong vs. units at long range. Weak vs. Skirmishers and units at close range.<i> Upgrades: attack, range, armor (Blacksmith); attack, accuracy (University); accuracy, to Crossbowman 125F, 75G (Archery Range); creation speed (Castle); more resistant to Monks (Monastery).<i> \\n<hp> <attack> <armor> <piercearmor> <range>")
                 .withContentFr("Créer <b>Archer<b> (<cost>) \\nUnité à distance. Puissant contre les unités à distance. Faible contre les tirailleurs et les unités à faible portée.<i> Améliorations : attaque, portée, armure (Forge) ; attaque, précision (Université) ; précision, en Arbalétrier 125 N, 75 O (Camp de tir à l'arc) ; vitesse de création (Château) ; résistance aux moines supérieure (Monastère).<i> \\n<hp> <attack> <armor> <piercearmor> <range>")
                 .withContentBr("Criar <b>Arqueiro<b> (<cost>) \\nUnidade de longo alcance. Forte contra unidades a uma distância longa. Fraco contra Escaramuçadores e unidades a uma distância curta.<i> Aprimoramentos: ataque, alcance, armadura (Ferraria); ataque, precisão (Universidade); precisão, para Besteiro: 125 C, 75 O (Campo de Arqueiros); velocidade de criação (Castelo); mais resistente a Monges (Mosteiro).<i> \\n<hp> <attack> <armor> <piercearmor> <range>")
@@ -103,8 +103,8 @@ public class HelpTextFixture {
                 .withContentZh("生产<b>步弓手<b> (<cost>) \\n远程单位。适于远程攻击敌方单位。不适于近程攻击掷矛手等单位。<i> 升级：攻击力，射程，护甲 (铁匠铺)；攻击力，准确度 (大学)；准确度，升级到弩手需 125 食物，75 黄金 (靶场)；生产速度 (城堡)；提升抵抗僧侣的能力 (修道院)。<i> \\n<hp> <attack> <armor> <piercearmor> <range>");
     }
 
-    public static HelpText archerHelpTextShort() {
-        return new HelpText()
+    public static HelpTextEntity archerHelpTextShort() {
+        return new HelpTextEntity()
                 .withContentEn("Create Archer")
                 .withContentFr("Créer Archer")
                 .withContentBr("Criar Arqueiro")
@@ -123,8 +123,8 @@ public class HelpTextFixture {
                 .withContentZh("生产步弓手");
     }
 
-    public static HelpText thumbRing() {
-        return new HelpText()
+    public static HelpTextEntity thumbRing() {
+        return new HelpTextEntity()
                 .withContentEn("Thumb Ring")
                 .withContentFr("Bague de pouce")
                 .withContentBr("Anel de Arqueria")
@@ -141,5 +141,25 @@ public class HelpTextFixture {
                 .withContentTw("拇指環")
                 .withContentVi("Ban chỉ")
                 .withContentZh("扳指");
+    }
+
+    public static HelpTextEntity britons() {
+        return new HelpTextEntity()
+                .withContentEn("Britons")
+                .withContentFr("Britanniques")
+                .withContentBr("Bretões")
+                .withContentDe("Briten")
+                .withContentEs("Britanos")
+                .withContentHi("टन")
+                .withContentIt("Britanni")
+                .withContentJp("ブリトン")
+                .withContentKo("브리튼인")
+                .withContentMs("Orang British")
+                .withContentMx("Ingleses")
+                .withContentRu("Британцы")
+                .withContentTr("Britonlar")
+                .withContentTw("不列顛人")
+                .withContentVi("Briton")
+                .withContentZh("不列颠");
     }
 }

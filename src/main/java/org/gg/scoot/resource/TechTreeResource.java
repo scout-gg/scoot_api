@@ -1,8 +1,7 @@
 package org.gg.scoot.resource;
 
-import org.gg.scoot.dto.Language;
-import org.gg.scoot.dto.civ.CivBuildingDto;
-import org.gg.scoot.dto.civ.TechTreeDto;
+import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.techtree.TechTreeDto;
 import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
@@ -25,13 +24,11 @@ public class TechTreeResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public TechTreeDto all(@PathParam Long id, @QueryParam("lang") String lang) {
-        Language language = Language.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
 
-        // Fixme : this should be an HQL named query but it doesn't seems to work here
-        // Let's stay in touch with the quarkus ppl
         List<BuildingEntity> buildingEntities = BuildingEntity.<BuildingEntity>find("is_root", true).stream().toList();
 
-        final List<CivBuildingDto> civBuildingDtos = mapper.toCivtDto(buildingEntities, id, language);
+        var civBuildingDtos = mapper.toCivtDto(buildingEntities, id, languageDto);
         return new TechTreeDto(1L, "Britons", civBuildingDtos);
     }
 }

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
-public class HelpText extends PanacheEntityBase {
+public class HelpTextEntity extends PanacheEntityBase {
     @Id
     public Long id;
     @Column(name = "content_en")

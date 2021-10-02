@@ -1,6 +1,7 @@
 package org.gg.scoot.resource;
 
-import org.gg.scoot.dto.Language;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.gg.scoot.dto.LanguageDto;
 import org.gg.scoot.dto.unit.UnitDto;
 import org.gg.scoot.entity.unit.UnitEntity;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;
@@ -22,9 +23,9 @@ public class UnitResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public UnitDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        Language language = Language.valueOf(lang.toUpperCase());
-        UnitEntity unitEntity = UnitEntity.findById(id);
-        return mapper.toDto(unitEntity, language);
+        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        UnitEntity unitEntity = PanacheEntityBase.findById(id);
+        return mapper.toDto(unitEntity, languageDto);
     }
 
 }

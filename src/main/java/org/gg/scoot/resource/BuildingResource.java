@@ -1,6 +1,6 @@
 package org.gg.scoot.resource;
 
-import org.gg.scoot.dto.Language;
+import org.gg.scoot.dto.LanguageDto;
 import org.gg.scoot.dto.unit.BuildingDto;
 import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;
@@ -23,8 +23,8 @@ public class BuildingResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<BuildingDto> all(@QueryParam("lang") String lang) {
-        Language language = Language.valueOf(lang.toUpperCase());
-        return mapper.toDto(BuildingEntity.listAll(), language);
+        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        return mapper.toDto(BuildingEntity.listAll(), languageDto);
 
     }
 
@@ -32,8 +32,8 @@ public class BuildingResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public BuildingDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        Language language = Language.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
         BuildingEntity buildingEntity = BuildingEntity.findById(id);
-        return mapper.toDto(buildingEntity, language);
+        return mapper.toDto(buildingEntity, languageDto);
     }
 }

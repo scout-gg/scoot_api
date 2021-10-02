@@ -4,13 +4,12 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.With;
-import org.gg.scoot.entity.HelpText;
+import org.gg.scoot.entity.HelpTextEntity;
 import org.gg.scoot.entity.tech.TechEntity;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "unit")
@@ -32,15 +31,15 @@ public class UnitEntity extends PanacheEntityBase {
 
     @OneToOne
     @JoinColumn(name = "name", referencedColumnName = "id")
-    public HelpText name;
+    public HelpTextEntity name;
 
     @OneToOne
     @JoinColumn(name = "help_text_short", referencedColumnName = "id")
-    public HelpText helpTextShort;
+    public HelpTextEntity helpTextShort;
 
     @OneToOne
     @JoinColumn(name = "help_text", referencedColumnName = "id")
-    public HelpText helpText;
+    public HelpTextEntity helpText;
 
     @Column(name = "wood_cost")
     public Integer woodCost;

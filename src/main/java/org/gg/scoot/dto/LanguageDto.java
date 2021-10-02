@@ -1,7 +1,7 @@
 package org.gg.scoot.dto;
 
-public enum Language {
+public enum LanguageDto {
     FR,
     EN,
-    ES;
+    ES
 }

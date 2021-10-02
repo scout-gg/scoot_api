@@ -1,9 +1,9 @@
 package org.gg.scoot.mapper.tech;
 
-import org.gg.scoot.dto.Language;
+import org.gg.scoot.dto.LanguageDto;
 import org.gg.scoot.dto.tech.TechDto;
 import org.gg.scoot.entity.tech.ChildTechEntity;
-import org.gg.scoot.mapper.HelpTextMapper;
+import org.gg.scoot.mapper.helptext.HelpTextMapper;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
@@ -19,7 +19,7 @@ public interface ChildTechMapper {
     @Mapping(source = "goldCost", target = "cost.goldCost")
     @Mapping(source = "stoneCost", target = "cost.stoneCost")
     @Mapping(source = "techs", target = "techs")
-    TechDto toTechDtoFr(ChildTechEntity techEntity, @Context Language language);
+    TechDto toDto(ChildTechEntity techEntity, @Context LanguageDto languageDto);
 
-    List<TechDto> toTechDtoFr(List<ChildTechEntity> techEntity, @Context Language language);
+    List<TechDto> toDto(List<ChildTechEntity> techEntity, @Context LanguageDto languageDto);
 }
