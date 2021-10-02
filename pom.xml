@@ -22,6 +22,8 @@
         <assertj-core.version>3.21.0</assertj-core.version>
         <quarkus-maven-plugin.version>2.0.3.Final</quarkus-maven-plugin.version>
         <archunit.version>0.21.0</archunit.version>
+        <sonar.organization>scout-gg</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencyManagement>
         <dependencies>
