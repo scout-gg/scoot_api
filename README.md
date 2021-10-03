@@ -1,4 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/scout-gg/scoot_api?style=for-the-badge)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=for-the-badge)](https://conventionalcommits.org)
 # Scoot GG Api
 REST API exposing Age of Empire 2 Definitive Edition data for scoot.gg
 
