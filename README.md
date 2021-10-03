@@ -1,3 +1,4 @@
+![GitHub](https://img.shields.io/github/license/scout-gg/scoot_api?style=for-the-badge)
 # Scoot GG Api
 REST API exposing Age of Empire 2 Definitive Edition data for scoot.gg
 
