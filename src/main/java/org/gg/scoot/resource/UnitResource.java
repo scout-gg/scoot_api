@@ -13,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import java.util.Optional;
 
 @Path("/units")
 public class UnitResource {
@@ -22,10 +23,9 @@ public class UnitResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public UnitDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.from(lang);
+    public UnitDto byId(@PathParam Long id, @QueryParam("lang") Optional<LanguageDto> lang) {
         UnitEntity unitEntity = PanacheEntityBase.findById(id);
-        return mapper.toDto(unitEntity, languageDto);
+        return mapper.toDto(unitEntity, lang.orElse(LanguageDto.EN));
     }
 
 }

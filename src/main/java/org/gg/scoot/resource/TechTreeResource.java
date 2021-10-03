@@ -16,6 +16,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Optional;
 
 @Path("/techtree")
 public class TechTreeResource {
@@ -29,15 +30,14 @@ public class TechTreeResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public TechTreeDto all(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.from(lang);
-
+    public TechTreeDto all(@PathParam Long id, @QueryParam("lang") Optional<LanguageDto> lang) {
         List<BuildingEntity> buildingEntities = BuildingEntity.<BuildingEntity>find("is_root", true).stream().toList();
-        final CivilizationEntity civilizationEntity = CivilizationEntity.findById(id);
-        CivilizationDto civilization = civilizationMapper.toDto(civilizationEntity, languageDto);
+        CivilizationEntity civilizationEntity = CivilizationEntity.findById(id);
 
+        var language = lang.orElse(LanguageDto.EN);
+        var civilization = civilizationMapper.toDto(civilizationEntity, language);
+        var civBuildingDtos = unitBuildingMapper.toCivtDto(buildingEntities, id, language);
 
-        var civBuildingDtos = unitBuildingMapper.toCivtDto(buildingEntities, id, languageDto);
         return new TechTreeDto(id, civilization.name(), civBuildingDtos);
     }
 }

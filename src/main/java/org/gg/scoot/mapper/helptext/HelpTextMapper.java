@@ -15,7 +15,20 @@ public interface HelpTextMapper {
         return switch (languageDto) {
             case FR -> helpText.getContentFr();
             case EN -> helpText.getContentEn();
+            case BR -> helpText.getContentBr();
+            case DE -> helpText.getContentDe();
             case ES -> helpText.getContentEs();
+            case HI -> helpText.getContentHi();
+            case IT -> helpText.getContentIt();
+            case JP -> helpText.getContentJp();
+            case KO -> helpText.getContentKo();
+            case MS -> helpText.getContentMs();
+            case MX -> helpText.getContentMx();
+            case RU -> helpText.getContentRu();
+            case TR -> helpText.getContentTr();
+            case TW -> helpText.getContentTw();
+            case VI -> helpText.getContentVi();
+            case ZH -> helpText.getContentZh();
         };
     }
 }
