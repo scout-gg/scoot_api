@@ -15,5 +15,5 @@ jobs:
           java-version: 17
 
       - name: E2E tests
-        run: mvn test -Dtest=SampleTest#testTags
+        run: mvn test -Dtest=KarateRunner
 
