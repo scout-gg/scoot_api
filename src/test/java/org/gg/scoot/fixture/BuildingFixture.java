@@ -10,28 +10,33 @@ public class BuildingFixture {
     public static final long ARCHERY_RANGE_ID = 87L;
 
     public static BuildingEntity archeryRange() {
-        return new BuildingEntity()
-                .withId(ARCHERY_RANGE_ID)
-                .withAge(0)
-                .withInternalName("ARRG")
-                .withName(HelpTextFixture.archeryRangeName())
-                .withHelpText(HelpTextFixture.archeryRangeHelpText())
-                .withHelpTextShort(HelpTextFixture.archeryRangeHelpTextShort())
-                .withWoodCost(175)
-                .withFoodCost(0)
-                .withStoneCost(0)
-                .withGoldCost(0)
-                .withAttack(0)
-                .withMeleeArmor(1)
-                .withPierceArmor(0)
-                .withHitPoints(1500)
-                .withLineOfSight(6)
-                .withGarrisonCapacity(10)
-                .withEnabledForCivilizations(CIVILIZATIONS_ID)
-                .withUnitType(80)
-                .withUnits(List.of(UnitFixture.archer()))
-                .withTechs(List.of(TechFixture.thumbRing()))
-                // We are doing this for the sake of testing, this does not reflect the actual database
-                .withBuildings(List.of(new BuildingEntity().withId(99L)));
+        var innerBuilding = new BuildingEntity();
+        innerBuilding.setId(99L);
+
+        var archeryRange = new BuildingEntity();
+        archeryRange.setId(ARCHERY_RANGE_ID);
+        archeryRange.setAge(0);
+        archeryRange.setInternalName("ARRG");
+        archeryRange.setName(HelpTextFixture.archeryRangeName());
+        archeryRange.setHelpText(HelpTextFixture.archeryRangeHelpText());
+        archeryRange.setHelpTextShort(HelpTextFixture.archeryRangeHelpTextShort());
+        archeryRange.setWoodCost(175);
+        archeryRange.setFoodCost(0);
+        archeryRange.setStoneCost(0);
+        archeryRange.setGoldCost(0);
+        archeryRange.setMeleeArmor(1);
+        archeryRange.setPierceArmor(0);
+        archeryRange.setAttack(0);
+        archeryRange.setHitPoints(1500);
+        archeryRange.setLineOfSight(6);
+        archeryRange.setGarrisonCapacity(10);
+        archeryRange.setUnitType(80);
+        archeryRange.setBuildings(List.of(innerBuilding));
+        archeryRange.setEnabledForCivilizations(CIVILIZATIONS_ID);
+        archeryRange.setUnits(List.of(UnitFixture.archer()));
+        archeryRange.setTechs(List.of(TechFixture.thumbRing()));
+
+        return archeryRange;
     }
+
 }

@@ -1,4 +1,4 @@
-package org.gg.scoot.dto;
+package org.gg.scoot.dto.common;
 
 public record CostDto(Integer woodCost,
                       Integer foodCost,

@@ -1,6 +1,6 @@
 package org.gg.scoot.resource;
 
-import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.dto.unit.BuildingDto;
 import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;

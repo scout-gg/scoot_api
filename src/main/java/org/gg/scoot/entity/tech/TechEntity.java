@@ -1,8 +1,6 @@
 package org.gg.scoot.entity.tech;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.*;
-import org.gg.scoot.entity.HelpTextEntity;
 import org.gg.scoot.entity.unit.UnitOrBuildingEntity;
 import org.hibernate.annotations.Where;
 
@@ -14,29 +12,9 @@ import java.util.List;
 @Table(name = "technology")
 @AllArgsConstructor
 @NoArgsConstructor
-@With
 @Setter
 @Getter
-public class TechEntity extends PanacheEntityBase {
-    @Id
-    private Long id;
-    @OneToOne
-    @JoinColumn(name = "name", referencedColumnName = "id")
-    private HelpTextEntity name;
-    private Integer age;
-    @Column(name = "internal_name")
-    private String internalName;
-    @Column(name = "research_time")
-    private Integer researchTime;
-    @Column(name = "wood_cost")
-    private Integer woodCost;
-    @Column(name = "food_cost")
-    private Integer foodCost;
-    @Column(name = "gold_cost")
-    private Integer goldCost;
-    @Column(name = "stone_cost")
-    private Integer stoneCost;
-
+public class TechEntity extends TechBaseEntity {
     @OneToMany
     @Where(clause = "NOT is_root")
     @JoinTable(name = "tech_required_tech",

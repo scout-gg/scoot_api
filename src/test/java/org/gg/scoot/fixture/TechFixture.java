@@ -7,15 +7,18 @@ public class TechFixture {
     public static final long THUMB_RING_ID = 437L;
 
     public static TechEntity thumbRing() {
-        return new TechEntity()
-                .withId(THUMB_RING_ID)
-                .withAge(3)
-                .withInternalName("Thumb Ring")
-                .withName(HelpTextFixture.thumbRing())
-                .withResearchTime(45)
-                .withWoodCost(250)
-                .withFoodCost(300)
-                .withStoneCost(0)
-                .withGoldCost(0);
+        var thumbRing = new TechEntity();
+        thumbRing.setId(THUMB_RING_ID);
+        thumbRing.setAge(3);
+        thumbRing.setInternalName("Thumb Ring");
+        thumbRing.setName(HelpTextFixture.thumbRing());
+        thumbRing.setResearchTime(45);
+        thumbRing.setWoodCost(250);
+        thumbRing.setFoodCost(300);
+        thumbRing.setStoneCost(0);
+        thumbRing.setGoldCost(0);
+
+        return thumbRing;
     }
+
 }

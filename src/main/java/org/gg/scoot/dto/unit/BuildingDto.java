@@ -1,6 +1,6 @@
 package org.gg.scoot.dto.unit;
 
-import org.gg.scoot.dto.CostDto;
+import org.gg.scoot.dto.common.CostDto;
 import org.gg.scoot.dto.tech.TechDto;
 
 import java.util.List;

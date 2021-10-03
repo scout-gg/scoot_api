@@ -2,11 +2,9 @@ package org.gg.scoot.mapper.unit;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.assertj.core.api.SoftAssertions;
-import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.dto.tech.TechDto;
-import org.gg.scoot.dto.unit.BuildingDto;
 import org.gg.scoot.dto.unit.UnitDto;
-import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.fixture.BuildingFixture;
 import org.junit.jupiter.api.Test;
 

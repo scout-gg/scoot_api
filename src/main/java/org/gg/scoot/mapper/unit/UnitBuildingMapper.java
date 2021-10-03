@@ -1,6 +1,6 @@
 package org.gg.scoot.mapper.unit;
 
-import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.dto.techtree.CivBuildingDto;
 import org.gg.scoot.dto.unit.BuildingDto;
 import org.gg.scoot.dto.unit.UnitDto;

@@ -2,7 +2,7 @@ package org.gg.scoot.mapper.civilization;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.assertj.core.api.SoftAssertions;
-import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.fixture.CivilizationFixture;
 import org.junit.jupiter.api.Test;
 

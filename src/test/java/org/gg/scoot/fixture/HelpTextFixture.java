@@ -1,6 +1,6 @@
 package org.gg.scoot.fixture;
 
-import org.gg.scoot.entity.HelpTextEntity;
+import org.gg.scoot.entity.helptext.HelpTextEntity;
 
 public class HelpTextFixture {
     public static HelpTextEntity archeryRangeName() {

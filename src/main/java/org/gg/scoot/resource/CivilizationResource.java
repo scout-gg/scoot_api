@@ -1,6 +1,6 @@
 package org.gg.scoot.resource;
 
-import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.dto.civilization.CivilizationDto;
 import org.gg.scoot.entity.civilization.CivilizationEntity;
 import org.gg.scoot.mapper.civilization.CivilizationMapper;

@@ -1,7 +1,7 @@
 package org.gg.scoot.resource;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import org.gg.scoot.dto.LanguageDto;
+import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.dto.unit.UnitDto;
 import org.gg.scoot.entity.unit.UnitEntity;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;

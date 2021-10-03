@@ -5,6 +5,7 @@ import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -55,6 +56,8 @@ public class ArchitectureTest {
             .beAnnotatedWith(Entity.class)
             .orShould()
             .beAnnotatedWith(Table.class)
+            .orShould()
+            .beAnnotatedWith(MappedSuperclass.class)
             .andShould()
             .onlyAccessClassesThat()
             .resideOutsideOfPackages("..dto..", "..mapper..", "..resource..");

@@ -1,33 +1,39 @@
 package org.gg.scoot.fixture;
 
+import org.gg.scoot.entity.unit.BuildingEntity;
 import org.gg.scoot.entity.unit.UnitEntity;
+import org.gg.scoot.entity.unit.UnitOrBuildingBaseEntity;
 
 import java.util.List;
+
+import static org.gg.scoot.fixture.BuildingFixture.CIVILIZATIONS_ID;
 
 public class UnitFixture {
 
     public static final long ARCHER_ID = 4L;
 
     public static UnitEntity archer() {
-        return new UnitEntity()
-                .withId(ARCHER_ID)
-                .withAge(2)
-                .withUnitType(70)
-                .withInternalName("ARCHR")
-                .withName(HelpTextFixture.archerName())
-                .withHelpText(HelpTextFixture.archerHelpText())
-                .withHelpTextShort(HelpTextFixture.archerHelpTextShort())
-                .withWoodCost(25)
-                .withFoodCost(0)
-                .withStoneCost(0)
-                .withGoldCost(45)
-                .withAttack(4)
-                .withMeleeArmor(0)
-                .withPierceArmor(0)
-                .withHitPoints(30)
-                .withLineOfSight(6)
-                .withGarrisonCapacity(0)
-                .withTechs(List.of())
-                .withEnabledForCivilizations(BuildingFixture.CIVILIZATIONS_ID);
+        var archer = new UnitEntity();
+        archer.setId(ARCHER_ID);
+        archer.setAge(2);
+        archer.setInternalName("ARCHR");
+        archer.setName(HelpTextFixture.archerName());
+        archer.setHelpText(HelpTextFixture.archerHelpText());
+        archer.setHelpTextShort(HelpTextFixture.archerHelpTextShort());
+        archer.setWoodCost(25);
+        archer.setFoodCost(0);
+        archer.setStoneCost(0);
+        archer.setGoldCost(45);
+        archer.setMeleeArmor(0);
+        archer.setPierceArmor(0);
+        archer.setAttack(4);
+        archer.setHitPoints(30);
+        archer.setLineOfSight(6);
+        archer.setGarrisonCapacity(0);
+        archer.setUnitType(70);
+        archer.setEnabledForCivilizations(CIVILIZATIONS_ID);
+        archer.setTechs(List.of());
+
+        return archer;
     }
 }

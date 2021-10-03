@@ -1,4 +1,4 @@
-package org.gg.scoot.entity;
+package org.gg.scoot.entity.helptext;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.*;

@@ -1,6 +1,6 @@
 package org.gg.scoot.dto.techtree;
 
-import org.gg.scoot.dto.CostDto;
+import org.gg.scoot.dto.common.CostDto;
 import org.gg.scoot.dto.unit.UnitStatDto;
 
 import java.util.List;
