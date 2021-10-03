@@ -24,6 +24,9 @@ public class BuildingResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "List all available buildings",
+            description = "Return all buildings")
     public List<BuildingDto> all(@QueryParam("lang") Optional<LanguageDto> lang) {
         return mapper.toDto(BuildingEntity.listAll(), lang.orElse(LanguageDto.EN));
 

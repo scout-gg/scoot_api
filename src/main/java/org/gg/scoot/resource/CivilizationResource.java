@@ -24,7 +24,7 @@ public class CivilizationResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-            summary = "List available civilizations",
+            summary = "List all available civilizations",
             description = "Return all civilizations")
     public List<CivilizationDto> all(@QueryParam("lang") Optional<LanguageDto> lang) {
         return mapper.toDto(CivilizationEntity.listAll(), lang.orElse(LanguageDto.EN));
