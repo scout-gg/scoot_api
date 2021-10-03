@@ -23,7 +23,7 @@ public class TechResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<TechDto> all(@QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         return mapper.toDto(TechEntity.listAll(), languageDto);
 
     }
@@ -32,7 +32,7 @@ public class TechResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public TechDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         TechEntity techEntity = TechEntity.findById(id);
         return mapper.toDto(techEntity, languageDto);
 

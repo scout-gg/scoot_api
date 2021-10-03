@@ -23,7 +23,7 @@ public class UnitResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public UnitDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         UnitEntity unitEntity = PanacheEntityBase.findById(id);
         return mapper.toDto(unitEntity, languageDto);
     }

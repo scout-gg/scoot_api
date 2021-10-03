@@ -22,7 +22,7 @@ public class CivilizationResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<CivilizationDto> all(@QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         return mapper.toDto(CivilizationEntity.listAll(), languageDto);
     }
 
@@ -30,7 +30,7 @@ public class CivilizationResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public CivilizationDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         CivilizationEntity civilization = CivilizationEntity.findById(id);
         return mapper.toDto(civilization, languageDto);
     }

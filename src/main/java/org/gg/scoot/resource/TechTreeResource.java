@@ -24,7 +24,7 @@ public class TechTreeResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public TechTreeDto all(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
 
         List<BuildingEntity> buildingEntities = BuildingEntity.<BuildingEntity>find("is_root", true).stream().toList();
 

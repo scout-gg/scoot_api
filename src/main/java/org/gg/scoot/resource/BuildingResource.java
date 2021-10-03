@@ -23,7 +23,7 @@ public class BuildingResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<BuildingDto> all(@QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         return mapper.toDto(BuildingEntity.listAll(), languageDto);
 
     }
@@ -32,7 +32,7 @@ public class BuildingResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public BuildingDto byId(@PathParam Long id, @QueryParam("lang") String lang) {
-        LanguageDto languageDto = LanguageDto.valueOf(lang.toUpperCase());
+        LanguageDto languageDto = LanguageDto.from(lang);
         BuildingEntity buildingEntity = BuildingEntity.findById(id);
         return mapper.toDto(buildingEntity, languageDto);
     }
