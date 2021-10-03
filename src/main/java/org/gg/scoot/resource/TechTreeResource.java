@@ -1,8 +1,11 @@
 package org.gg.scoot.resource;
 
+import org.gg.scoot.dto.civilization.CivilizationDto;
 import org.gg.scoot.dto.common.LanguageDto;
 import org.gg.scoot.dto.techtree.TechTreeDto;
+import org.gg.scoot.entity.civilization.CivilizationEntity;
 import org.gg.scoot.entity.unit.BuildingEntity;
+import org.gg.scoot.mapper.civilization.CivilizationMapper;
 import org.gg.scoot.mapper.unit.UnitBuildingMapper;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
@@ -18,7 +21,10 @@ import java.util.List;
 public class TechTreeResource {
 
     @Inject
-    UnitBuildingMapper mapper;
+    UnitBuildingMapper unitBuildingMapper;
+
+    @Inject
+    CivilizationMapper civilizationMapper;
 
     @GET
     @Path("/{id}")
@@ -27,8 +33,11 @@ public class TechTreeResource {
         LanguageDto languageDto = LanguageDto.from(lang);
 
         List<BuildingEntity> buildingEntities = BuildingEntity.<BuildingEntity>find("is_root", true).stream().toList();
+        final CivilizationEntity civilizationEntity = CivilizationEntity.findById(id);
+        CivilizationDto civilization = civilizationMapper.toDto(civilizationEntity, languageDto);
 
-        var civBuildingDtos = mapper.toCivtDto(buildingEntities, id, languageDto);
-        return new TechTreeDto(1L, "Britons", civBuildingDtos);
+
+        var civBuildingDtos = unitBuildingMapper.toCivtDto(buildingEntities, id, languageDto);
+        return new TechTreeDto(id, civilization.name(), civBuildingDtos);
     }
 }
