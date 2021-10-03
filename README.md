@@ -1,12 +1,25 @@
-# scootgg-backend project
+# Scoot GG Api
+REST API exposing Age of Empire 2 Definitive Edition data for scoot.gg
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+⚠️ This is still a work in progress, breaking changes and bugs will happen.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Using the API
 
-## Running the application in dev mode
+A development version is available at https://scoot-gg.cleverapps.io.
+You can browse the [swagger-ui](https://scoot-gg.cleverapps.io/docs) get familiar with the available endpoints.
 
-You can run your application in dev mode that enables live coding using:
+> **_NOTE:_** some endpoints expose a huge amount of data and swagger-ui will sometimes 
+take a while to render the json response. 
+For better performance use an HTTP client such as curl, insomnia or postman.
+
+## Running the application locally
+
+**Prerequisites** :  
+- java 17
+- a postgresql instance
+- a steam installation of Age of Empire 2 Definitive Edition
+- follow the [scoot database exporter readme](https://github.com/scout-gg/scoot_database) to populate your db.
+- You can run your application in dev mode that enables live coding using:
 
 ```shell script
 ./mvnw compile quarkus:dev
@@ -14,48 +27,12 @@ You can run your application in dev mode that enables live coding using:
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
-## Packaging and running the application
 
-The application can be packaged using:
+## Licence
 
-```shell script
-./mvnw package
-```
+All the code in this repository is released under the MIT License, for more information take a look at the LICENSE file.
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory. Be aware that it’s not an _über-jar_ as
-the dependencies are copied into the `target/quarkus-app/lib/` directory.
+## Microsoft Game Content Usage Rules
 
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Pnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/scootgg-backend-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html
-.
-
-## Provided examples
-
-### RESTEasy JAX-RS example
-
-REST is easy peasy with this Hello World RESTEasy resource.
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+Age of Empires II © Microsoft Corporation. Scoot-gg-Api was created under Microsoft's "Game Content Usage Rules" using assets
+from Age of Empires II, and it is not endorsed by or affiliated with Microsoft.
